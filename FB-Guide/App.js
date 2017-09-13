@@ -7,7 +7,6 @@ export default class App extends React.Component {
       <View style={styles.container}>     
         <Text style={styles.child}>1</Text>  
         <Text style={styles.child}> HIIIII</Text>
-
         <Text style={styles.child}>"2" </Text>
       </View>
     );
