@@ -1,19 +1,56 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Alert, View, Button, StyleSheet} from 'react-native';
 
-  export default class AlignItemsBasics extends Component {
+  export default class ButtonBasics extends Component {
+    _onPressButton() {
+      Alert.alert('You tapped the button!')
+    }
+
     render() {
       return (
-        <View style={{
-          flex: 1, 
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'stretch',
-          }}>
-          <View style={{height: 50, backgroundColor: 'powderblue'}} />
-          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-          <View style={{height: 50, backgroundColor: 'steelblue'}} />
+       <View style={styles.container}>
+         <View style={styles.buttonContainer}>
+          <Button
+            onPress={this._onPressButton}
+            title={'Press Me 1'}
+            color={'green'}
+          />
         </View>
-      );
-    }
+        <View style={styles.buttonContainer}>
+          <Button
+          onPress={this._onPressButton}
+          title={'Press Me 2'}
+          color={'#841584'}
+        />
+        </View>
+        <View style={styles.alternativeLayoutButtonContainer}>
+          <Button
+          onPress={this._onPressButton}
+          title={'Alternate 1'}
+        />
+        <Button
+          onPress={this._onPressButton}
+          title={'Alternate 2'}
+          color={'#841584'}
+        />
+      </View>
+    </View>
+
+    );
   }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    margin: 20
+  },
+  alternativeLayoutButtonContainer: {
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
+})
