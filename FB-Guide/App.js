@@ -24,13 +24,7 @@ export default class Touchables extends Component {
             <Text style={styles.buttonText}>TouchableOpacity</Text>
           </View>
         </TouchableOpacity>
-        <TouchableNativeFeedback
-            onPress={this._onPressButton}
-            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
-          </View>
-        </TouchableNativeFeedback>
+        
         <TouchableWithoutFeedback
             onPress={this._onPressButton}
             >
@@ -50,7 +44,7 @@ export default class Touchables extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
+    paddingTop: 360,
     alignItems: 'center'
   },
   button: {
