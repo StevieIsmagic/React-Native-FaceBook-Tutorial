@@ -1,60 +1,54 @@
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-export default class Touchables extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
-
-  _onLongPressButton() {
-    Alert.alert('You long-pressed the button!')
-  }
-
-
-  render() {
+export default class FlatListBasics extends Component {
+  render(){
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableHighlight</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableOpacity onPress={this._onPressButton}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableOpacity</Text>
-          </View>
-        </TouchableOpacity>
-        
-        <TouchableWithoutFeedback
-            onPress={this._onPressButton}
-            >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Touchable with Long Press</Text>
-          </View>
-        </TouchableHighlight>
-      </View>
+        <FlatList
+          data={[
+            {key: 'Stevie'},
+            {key: 'Lil Jon'},
+            {key: 'Devin'},
+            {key: 'Jackson'},
+            {key: 'James'},
+            {key: 'Joel'},
+            {key: 'John'},
+            {key: 'Jillian'},
+            {key: 'Jimmy'},
+            {key: 'Julie'},
+            {key: '1Devin'},
+            {key: 'J2ackson'},
+            {key: 'Ja3mes'},
+            {key: 'Joe4l'},
+            {key: 'John5'},
+            {key: 'Jilli3an'},
+            {key: '1Jimmy'},
+            {key: 'J2ulie'},
+            {key: 'De3vin'},
+            {key: 'Jac4kson'},
+            {key: 'Jame3s'},
+            {key: 'Jo2el'},
+            {key: 'Jo2hn'},
+            {key: 'Jil2lian'},
+            {key: 'Jimm2y'},
+            {key: 'martha'},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          />
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 360,
-    alignItems: 'center'
+    flex: 1,
+    paddingTop: 22,
   },
-  button: {
-    marginBottom: 30,
-    width: 260,
-    alignItems: 'center',
-    backgroundColor: '#2196F3'
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
   },
-  buttonText: {
-    padding: 20,
-    color: 'white'
-  }
 })
